@@ -1,0 +1,10 @@
+<% if logged_in? %>
+  <%= link_to "Edit profile", edit_current_user_path %>
+  &nbsp; | &nbsp;
+  <%= link_to "Log Out", logout_path %>
+<% else %>
+  <%= link_to('Sign Up', { :action => 'new', :controller => 'users' }, :rel => 'facebox') %>
+  &nbsp; | &nbsp;
+  <%= link_to('Login', { :action => 'new', :controller => 'sessions' }, :rel => 'facebox') %>
+<% end %>
+

@@ -30,12 +30,6 @@
   display: inline;
 }
 
-#welcome_user {
-  text-decoration: none;
-  font-size: 11px;
-  color: #EEE;
-}
-
 .header_bg {
   background: transparent url('/images/nav_bg1x53n3.png') repeat-x 0 bottom;
   height: 53px;

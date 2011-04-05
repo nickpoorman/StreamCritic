@@ -30,16 +30,8 @@
           <div class="span-20">
             <a href="/" id="logo" title="StreamCritic Home">StreamCritic</a>
           </div>
-          <div id="login_links" class="span-4 last prepend-top login">
-            <% if logged_in? %>
-              <%= link_to "Edit profile", edit_current_user_path %>
-              &nbsp; | &nbsp;
-              <%= link_to "Log Out", logout_path %>
-            <% else %>
-              <%= link_to "Sign Up", signup_path %>
-              &nbsp; | &nbsp;
-              <%= link_to "Log In", login_path %>
-            <% end %>
+          <div id="nav_menu" class="span-4 last prepend-top login">
+            <%= render 'menu/nav_menu' %>
           </div>
         </div>
         <div class="span-24"> 

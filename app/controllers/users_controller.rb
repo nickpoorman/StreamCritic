@@ -3,6 +3,10 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    respond_to do |format|
+      format.html { render :layout => false }
+      format.js
+    end
   end
 
   def create
@@ -11,7 +15,10 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_url, :notice => "Thank you for signing up! You are now logged in."
     else
-      render :action => 'new'
+      respond_to do |format|
+        format.html { render :action => 'new' }
+        format.js
+      end
     end
   end
 

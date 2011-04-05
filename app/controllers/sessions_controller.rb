@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
   def new
+    respond_to do |format|
+      format.html { render :layout => false }
+      format.js
+    end
   end
 
   def create
@@ -9,7 +13,10 @@ class SessionsController < ApplicationController
       redirect_to_target_or_default root_url, :notice => "Logged in successfully."
     else
       flash.now[:alert] = "Invalid login or password."
-      render :action => 'new'
+      respond_to do |format|
+        format.html { render :action => 'new' }
+        format.js
+      end
     end
   end
 

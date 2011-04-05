@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       flash.now[:alert] = "Invalid login or password."
       respond_to do |format|
         format.html { render :action => 'new' }
-        format.js
+        format.js { render :action => "create_failure"}
       end
     end
   end

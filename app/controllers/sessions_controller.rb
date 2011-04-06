@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_filter :login_required, :except => [:new, :create]
+
   def new
     respond_to do |format|
       format.html { render :layout => false }

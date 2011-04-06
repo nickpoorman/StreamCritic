@@ -24,7 +24,7 @@ class User
   # login can be either username or email address
   def self.authenticate(login, pass)
     #user = find_by_username(login) || find_by_email(login)
-    #MOGOFIX: Mongoid has fod_or_create_by but we dont want that 
+    #MOGOFIX: Mongoid has find_or_create_by but we dont want that 
     user = User.first(:conditions => { :username => login }) || User.first(:conditions => { :email => login }) 
     return user if user && user.password_hash == user.encrypt_password(pass)
   end

@@ -1,4 +1,6 @@
 StreamCritic::Application.routes.draw do
+  resources :videos
+
   root :to => "home#index"
 
   match 'user/edit' => 'users#edit', :as => :edit_current_user

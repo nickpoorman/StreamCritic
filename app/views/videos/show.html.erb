@@ -1,6 +1,8 @@
 <div class="span-24">
 <p id="notice"><%= notice %></p>
 
+  <div class="span-17"> 
+
     <!-- 1. The <div> tag will contain the <iframe> (and video player) -->
     <div id="player"></div>
 
@@ -39,4 +41,15 @@
         player.stopVideo();
       }
     </script>
+  </div>
+
+  <div class="span-7 last">
+    <% if @video.tags.size > 0 %>
+      <h2>Tags</h2>
+      <% for tag in @video.tags %>
+        <p><%= wrap(tag.comment) %></p>
+      <% end %>
+    <% end %>
+  </div>
+
 </div>

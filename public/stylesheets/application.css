@@ -39,6 +39,10 @@
   zoom: 1;
 }
 
+.globalfooter {
+  margin-top: -1em;
+}
+
 
 /* ERROR STUFF */
 #flash_notice, #flash_error, #flash_alert, #login_alert {

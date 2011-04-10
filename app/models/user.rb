@@ -2,10 +2,10 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
   
-  field :username,      :type => String
-  field :email,         :type => String
-  field :password_hash, :type => String
-  field :password_salt, :type => String
+  field :username
+  field :email
+  field :password_hash
+  field :password_salt
 
   # new columns need to be added here to be writable through mass assignment
   attr_accessible :username, :email, :password, :password_confirmation

@@ -1,5 +1,7 @@
 StreamCritic::Application.routes.draw do
-  resources :videos
+  resources :videos do
+    resources :tags
+  end
 
   root :to => "home#index"
 

@@ -2,6 +2,7 @@ class VideosController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
   #TODO: Put this back in later in production
   #rescue_from BSON::InvalidObjectId, :with => :redirect_if_not_found
+  rescue_from Mongoid::Errors::Validations, :with => :url_exists
 
   # GET /videos
   def index
@@ -15,21 +16,16 @@ class VideosController < ApplicationController
   # GET /videos/1
   def show
     @video = Video.find(params[:id])
-    uri = URI::parse(@video.url)
-    if uri.query
-      uri_params = CGI::parse(uri.query)
-      tubeid = uri_params['v']
-      if !tubeid.blank?
-        @you_tube_id = tubeid[0]
-        respond_to do |format|
-          format.html # show.html.erb
-          return;
-        end
+    if !@video.vid.blank?
+      @you_tube_id = @video.vid
+      respond_to do |format|
+        format.html # show.html.erb
+        return;
       end
-    end
-
-    respond_to do |format|
-      format.html { render "verror" } # show.html.erb
+    else
+      respond_to do |format|
+        format.html { render "verror" } # show.html.erb
+      end
     end
   end
 
@@ -52,7 +48,7 @@ class VideosController < ApplicationController
     @video = Video.new(params[:video])
 
     respond_to do |format|
-      if @video.save
+      if @video.save!
         format.html { redirect_to(@video, :notice => 'Video was successfully created.') }
       else
         format.html { render :action => "new" }
@@ -86,6 +82,21 @@ class VideosController < ApplicationController
   protected
     def redirect_if_not_found
       render "verror"
+      return;
+    end
+
+    def url_exists
+      if @video.vid.blank?
+        render :action => "new"
+        return;
+      end
+
+      @video = Video.first(conditions: { vid: @video.vid })
+      if @video.persisted?
+        redirect_to(@video, :notice => 'Video already exists.')
+      else
+        render :action => "new"
+      end
       return;
     end
 end

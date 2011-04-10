@@ -3,6 +3,7 @@
 <%= form_for [@video, Tag.new] do |f| %>
   <div id="comment_box">
     <p><%= f.text_area :comment %></p>
-  </div>
+    <p><%= f.text_field :time, :hidden => true %></p>
     <p><%= f.submit %></p>
+  </div>
 <% end %>

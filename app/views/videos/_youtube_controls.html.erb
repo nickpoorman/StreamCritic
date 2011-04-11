@@ -1,8 +1,46 @@
-<div id="videoInfo"> 
-  <p>Player state: <span id="playerState">--</span></p> 
-  <p>Current Time: <span id="videoCurrentTime">--:--</span> | Duration: <span id="videoDuration">--:--</span></p> 
-  <p>Bytes Total: <span id="bytesTotal">--</span> | Start Bytes: <span id="startBytes">--</span> | Bytes Loaded: <span id="bytesLoaded">--</span></p> 
-  <p>Controls: <a href="javascript:void(0);" onclick="playVideo();">Play</a> | <a href="javascript:void(0);" onclick="pauseVideo();">Pause</a> | <a href="javascript:void(0);" onclick="muteVideo();">Mute</a> | <a href="javascript:void(0);" onclick="unMuteVideo();">Unmute</a></p> 
-  <p><input id="volumeSetting" type="text" size="3" />&nbsp;<a href="javascript:void(0)" onclick="setVideoVolume();">&lt;- Set Volume</a> | Volume: <span id="volume">--</span></p> 
-  <p><input id="currentTimeSetting" type="text" size="3" />&nbsp;<a href="javascript:void(0)" onclick="setCurrentTime();">&lt;- Set Time</a> | Time: <span id="time">--</span></p> 
-</div> 
+<div class="progress_bar">
+  <div class="elapsed">
+  </div>
+</div>
+
+<script>
+
+  var youtubeAPI = 'http://gdata.youtube.com/feeds/api/videos?v=2&alt=jsonc';
+
+  $.get(youtubeAPI, {'q':"<%= @you_tube_id %>"}, function(response){
+
+    var data = response.data;
+
+    if(!data.totalItems || data.items[0].accessControl.embed!="allowed"){
+
+      // If the video was not found, or embedding is not allowed;
+      //TODO: DO SOMETHING HERE TO REMOVE THE VIDEO AND DISPLAY A MESSSAGE.
+
+      return elements.originalDIV;
+    }
+
+    data = data.items[0];
+
+
+  },'jsonp');
+
+  $(".progress_bar").click(function(e){
+
+    // When a click occurs on the progress bar, seek to the
+    // appropriate moment of the video.
+
+    var ratio = (e.pageX - $(".progress_bar").offset().left)/$(".progress_bar").outerWidth();
+    //if(console) { console.log(ratio); } 
+
+    $(".elapsed").width(ratio*100+'%');
+
+    var video_duration = $("#ytPlayer")[0].getDuration();
+
+    // if we dont have the duration yet just set it to 0
+
+    var seek_pos = Math.round(video_duration*ratio);
+
+    $("#ytPlayer")[0].seekTo(seek_pos, true);
+    return false;
+  });
+</script>

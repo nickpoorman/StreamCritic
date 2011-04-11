@@ -11,8 +11,11 @@
       function showComments(curTime){
         // check the hidden comments and display each if time
         $(".comment:hidden").each(function () {
-            if(console) { console.log($(this).data("tstamp") + " - " + curTime); } 
+            //if(console) { console.log($(this).data("tstamp") + " - " + curTime); } 
             if($(this).data("tstamp") <= curTime) { $(this).fadeIn(); }
+        });
+        $(".comment:visible").each(function () {
+            if($(this).data("tstamp") > curTime) { $(this).fadeOut(); }
         });
       }
       
@@ -123,7 +126,7 @@
         var atts = { id: "ytPlayer" };
         // All of the magic handled by SWFObject (http://code.google.com/p/swfobject/)
         swfobject.embedSWF("http://www.youtube.com/apiplayer?" +
-                           "&enablejsapi=1&playerapiid=player1", 
+                          "&enablejsapi=1&playerapiid=player1", 
                            "videoDiv", "640", "390", "8", null, null, params, atts);
       }
       function _run() {

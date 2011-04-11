@@ -1,0 +1,11 @@
+<div class="comment" data-tstamp="<%= @tag_enum.time %>">
+  <% if(@tag_enum.time.to_f < 0) %>
+    <%= wrap("0") %> 
+  <% else %>
+    <%= wrap(@tag_enum.time) %> 
+  <% end %>
+
+  <p><%= wrap(@tag_enum.comment) %></p>
+  <hr/>
+</div>
+

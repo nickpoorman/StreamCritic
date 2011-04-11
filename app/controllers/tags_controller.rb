@@ -3,6 +3,9 @@ class TagsController < ApplicationController
   def create
     @video = Video.find(params[:video_id])
     @tag = @video.tags.create!(params[:tag])
-    redirect_to @video, :notice => "Tag added!"
+    respond_to do |format|
+      format.html { redirect_to @video, :notice => "Tag added!" }
+      format.js
+    end
   end
 end

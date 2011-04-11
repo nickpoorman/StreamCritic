@@ -1,9 +1,9 @@
 
 <h2>New Tag</h2>
-<%= form_for [@video, Tag.new] do |f| %>
+<%= form_for [@video, Tag.new], :remote => true do |f| %>
   <div id="comment_box">
     <p><%= f.text_area :comment %></p>
-    <p><%= f.text_field :time, :hidden => true %></p>
+    <p id="cur_time"><%= f.text_field :time, :hidden => true %></p>
     <p><%= f.submit %></p>
   </div>
 <% end %>

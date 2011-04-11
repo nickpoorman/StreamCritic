@@ -13,25 +13,10 @@
   <div class="span-7 last">
     <h2>Users Tags</h2>
     <% if @video.tags.size > 0 %>
-      <% for tag in @video.tags.order_by(:time.desc) %>
-        <div class="comment" data-tstamp="<%= tag.time %>">
-          <% if(tag.time.to_f < 0) %>
-            <%= wrap("0") %> 
-          <% else %>
-            <%= wrap(tag.time) %> 
-          <% end %>
-
-          <p><%= wrap(tag.comment) %></p>
-          <hr/>
-        </div>
+      <% for @tag_enum in @video.tags.order_by(:time.desc) %>
+        <%= render 'tags/tag' %>
       <% end %>
     <% end %>
-  </div>
-
-  <div class="span-17" last>
-  </div>
-
-  <div class="span-17" last>
   </div>
 
 </div>

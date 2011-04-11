@@ -47,6 +47,10 @@
   display: none;
 }
 
+#cur_time {
+  display: none;
+}
+
 
 /* ERROR STUFF */
 #flash_notice, #flash_error, #flash_alert, #login_alert {

@@ -1,12 +1,3 @@
-.flash_container{
-
-  /*  Setting the container to relative positioning
-      so we can center the control div */
-
-  position:relative;
-  overflow:hidden;
-}
-
 .progress_bar{
   margin-bottom: .5em;
   width: 640px;
@@ -28,37 +19,4 @@
   height:100%;
   background-color:#1fa2f6;
   border-right:1px solid #49AFF0;
-}
-
-.controlDiv{
-  /* Centering the control div */
-  position:absolute;
-  width:120px;
-  height:120px;
-  cursor:pointer;
-  top:50%;
-  left:50%;
-  margin:-60px 0 0 -60px;
-}
-
-.controlDiv.play{
-  background:url('img/play.png') no-repeat center center;
-}
-
-.controlDiv.replay{
-  background:url('img/replay.png') no-repeat center center;
-}
-
-.controlDiv.pause{
-  background:url('img/pause.png') no-repeat -99999px;
-}
-
-.flash_container:hover .controlDiv.pause{
-  background-position:center center;
-}
-
-/* Only show the progress bar when the video is playing */
-
-.flash_container.playing:hover .progress_bar{
-  display:block;
 }

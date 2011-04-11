@@ -6,10 +6,11 @@
 <script>
 
   var youtubeAPI = 'http://gdata.youtube.com/feeds/api/videos?v=2&alt=jsonc';
+  var data;
 
   $.get(youtubeAPI, {'q':"<%= @you_tube_id %>"}, function(response){
 
-    var data = response.data;
+    data = response.data;
 
     if(!data.totalItems || data.items[0].accessControl.embed!="allowed"){
 
@@ -20,9 +21,12 @@
     }
 
     data = data.items[0];
-
+    if(console) { console.log(data.duration); } 
+    
 
   },'jsonp');
+
+
 
   $(".progress_bar").click(function(e){
 
@@ -36,9 +40,8 @@
 
     var video_duration = $("#ytPlayer")[0].getDuration();
 
-    // if we dont have the duration yet just set it to 0
 
-    var seek_pos = Math.round(video_duration*ratio);
+    var seek_pos = Math.round(data.duration*ratio);
 
     $("#ytPlayer")[0].seekTo(seek_pos, true);
     return false;

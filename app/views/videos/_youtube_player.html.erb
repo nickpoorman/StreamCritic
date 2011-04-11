@@ -8,7 +8,12 @@
        */
 
       // Display all comments based on time
-      function showComments(){
+      function showComments(curTime){
+        // check the hidden comments and display each if time
+        $(".comment:hidden").each(function () {
+            if(console) { console.log($(this).data("tstamp") + " - " + curTime); } 
+            if($(this).data("tstamp") <= curTime) { $(this).fadeIn(); }
+        });
       }
       
       // Update a particular HTML element with a new value
@@ -45,6 +50,7 @@
           updateHTML("volume", ytplayer.getVolume());
           updateHTML("time", ytplayer.getCurrentTime());
           updateForm("new_tag", "tag_time", ytplayer.getCurrentTime());
+          showComments(ytplayer.getCurrentTime());
         }
       }
       

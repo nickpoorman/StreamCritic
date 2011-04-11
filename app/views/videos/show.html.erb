@@ -6,23 +6,32 @@
     <div id="videoDiv">
       <%= render 'youtube_player' %>
     </div>
+      <%= render 'youtube_controls' %>
+      <%= render 'tags/form' %>
   </div>
 
   <div class="span-7 last">
+    <h2>Users Tags</h2>
     <% if @video.tags.size > 0 %>
-      <h2>tags</h2>
-      <% for tag in @video.tags %>
-        <p><%= wrap(tag.comment) %></p>
+      <% for tag in @video.tags.order_by(:time.desc) %>
+        <div class="comment" data-tstamp="<%= tag.time %>">
+          <% if(tag.time.to_f < 0) %>
+            <%= wrap("0") %> 
+          <% else %>
+            <%= wrap(tag.time) %> 
+          <% end %>
+
+          <p><%= wrap(tag.comment) %></p>
+          <hr/>
+        </div>
       <% end %>
     <% end %>
   </div>
 
   <div class="span-17" last>
-    <%= render 'youtube_controls' %>
   </div>
 
   <div class="span-17" last>
-    <%= render 'tags/form' %>
   </div>
 
 </div>

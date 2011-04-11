@@ -43,6 +43,10 @@
   margin-top: -1em;
 }
 
+.comment {
+  display: none;
+}
+
 
 /* ERROR STUFF */
 #flash_notice, #flash_error, #flash_alert, #login_alert {

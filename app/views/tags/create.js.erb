@@ -1,2 +1,6 @@
-$($(".comment:visible")[0]).before("<%= escape_javascript(render(:partial => 'tag')) %>");
+if($(".comment:visible").length < 1){
+  $($("#users_tags")[0]).after("<%= escape_javascript(render(:partial => 'tag')) %>");
+}else{
+  $($(".comment:visible")[0]).before("<%= escape_javascript(render(:partial => 'tag')) %>");
+}
 adjustTagTimes();

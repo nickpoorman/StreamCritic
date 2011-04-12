@@ -5,7 +5,6 @@ gem 'mongoid', '>= 2.0.0'
 gem 'mongo_ext'
 gem 'bson_ext', '>= 1.2.4'
 gem 'heroku'
-gem 'SystemTimer', '1.2.3'
 
 group :development do
   gem 'rspec-rails', '>= 2.5.0'

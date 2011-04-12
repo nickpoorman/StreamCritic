@@ -24,6 +24,20 @@
         document.getElementById(elmId).innerHTML = value;
       }
 
+      function seek(time) {
+        ytplayer.seekTo(time, true);
+      }
+
+      function frtToSt(time) {
+        var min = Math.floor(time / 60);
+        var sec = Math.floor(time - (min * 60));
+        min = min.toString();
+        sec = sec.toString();
+        if(min.length < 2) { min = '0' + min; }
+        if(sec.length < 2) { sec = '0' + sec; }
+        return min + ':' + sec;
+      }
+
       // Update the hidden form field
       function updateForm(formId, elmId, value) {
         oFormObject = document.forms[formId];
@@ -38,6 +52,14 @@
       // This function is called when the player changes state
       function onPlayerStateChange(newState) {
         updateHTML("playerState", newState);
+      }
+
+      // update the player progress bar
+      function updateProgressBar(cTime, dTime) {
+        if(cTime < 0) { cTime = 0; }
+        if(dTime < 0) { dTime = 0; }
+        var ratio = cTime / dTime;
+        $(".elapsed").width(ratio*100+'%');
       }
       
       // Display information about the current state of the player
@@ -54,6 +76,7 @@
           updateHTML("time", ytplayer.getCurrentTime());
           updateForm("new_tag", "tag_time", ytplayer.getCurrentTime());
           showComments(ytplayer.getCurrentTime());
+          updateProgressBar(ytplayer.getCurrentTime(), ytplayer.getDuration());
         }
       }
       

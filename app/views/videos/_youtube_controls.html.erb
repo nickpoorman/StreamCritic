@@ -32,10 +32,9 @@
 
     // When a click occurs on the progress bar, seek to the
     // appropriate moment of the video.
-
-    var ratio = (e.pageX - $(".progress_bar").offset().left)/$(".progress_bar").outerWidth();
     //if(console) { console.log(ratio); } 
 
+    var ratio = (e.pageX - $(".progress_bar").offset().left)/$(".progress_bar").outerWidth();
     $(".elapsed").width(ratio*100+'%');
 
     var video_duration = $("#ytPlayer")[0].getDuration();

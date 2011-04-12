@@ -1,11 +1,15 @@
-<div class="comment" data-tstamp="<%= @tag_enum.time %>">
-  <% if(@tag_enum.time.to_f < 0) %>
-    <%= wrap("0") %> 
-  <% else %>
-    <%= wrap(@tag_enum.time) %> 
-  <% end %>
-
+<div href="javascript:void(0)" onclick="seek(<%= @tag_enum.time %>, true);" class="comment" data-tstamp="<%= @tag_enum.time %>">
+  <div class="tag_time"></div> 
   <p><%= wrap(@tag_enum.comment) %></p>
   <hr/>
 </div>
 
+<script>
+  function adjustTagTimes() {
+    $(".tag_time").each(function () {
+      var time = parseFloat($(this).parent().data("tstamp"));
+      if(time < 0) { time = 0; }
+      $(this).text(frtToSt(time));
+    });
+  }
+</script>

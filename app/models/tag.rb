@@ -3,7 +3,7 @@ class Tag
   include Mongoid::Timestamps
 
   field :comment
-  field :time, type: BigDecimal
+  field :time, type: Float
 
   #before_validation :set_time_if_blank
 

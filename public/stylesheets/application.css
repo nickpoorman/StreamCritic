@@ -45,6 +45,7 @@
 
 .comment {
   display: none;
+  cursor:pointer;
 }
 
 #cur_time {

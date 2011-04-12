@@ -3,13 +3,3 @@
   <p><%= wrap(@tag_enum.comment) %></p>
   <hr/>
 </div>
-
-<script>
-  function adjustTagTimes() {
-    $(".tag_time").each(function () {
-      var time = parseFloat($(this).parent().data("tstamp"));
-      if(time < 0) { time = 0; }
-      $(this).text(frtToSt(time));
-    });
-  }
-</script>

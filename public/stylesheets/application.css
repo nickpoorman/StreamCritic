@@ -39,6 +39,15 @@
   zoom: 1;
 }
 
+.home_header {
+  background: transparent url('/images/home_bg2x590.png') repeat-x 0 bottom;
+  height: 590px;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+
+}
+
 .globalfooter {
   margin-top: -1em;
 }

@@ -25,6 +25,7 @@
   </div>
 
   <div class="span-7 last">
+    <div id="users_tags"><div>
     <% if @video.tags.size > 0 %>
       <% for @tag in @video.tags.order_by(:time.desc) %>
         <%= render 'tags/tag' %>
@@ -37,10 +38,6 @@
 <script>
   $(document).ready(function() {
     adjustTagTimes();
-  });
-
-  $('.comment').mouseenter(function() {
-      $(this).;
   });
 
 function adjustTagTimes() {

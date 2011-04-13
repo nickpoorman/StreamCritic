@@ -44,7 +44,7 @@ function adjustTagTimes() {
   $(".tag_time").each(function () {
       var time = parseFloat($(this).parent().parent().data("tstamp"));
       if(time < 0) { time = 0; }
-      $(this).append(frtToSt(time));
+      $(this).text(frtToSt(time));
   });
 }
 </script>

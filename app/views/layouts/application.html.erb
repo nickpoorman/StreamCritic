@@ -42,9 +42,11 @@
           <%= yield %>
         </div>
         <div class="span-24 prepend-top"> 
-          <hr>
           <div class="globalfooter">
+            <%= yield(:hlayout_footer_edit1) %>
+            <hr>
             <%= render 'menu/footer' %>
+            <%= yield(:hlayout_footer_edit2) %>
           </div>
         </div>
       </div>

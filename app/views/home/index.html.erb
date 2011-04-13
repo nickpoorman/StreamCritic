@@ -2,10 +2,31 @@
   <div id="home_header_bg">
   </div>
 <% end %>
+<% content_for :hlayout_footer_edit1 do %>
+  <div id="home_footer_edit">
+  <style>
+    #home_footer_edit {
+      margin-top: 166px;
+    }
+
+    #social_text {
+      margin-top: 9em;
+    }
+  </style>
+<% end %>
+<% content_for :hlayout_footer_edit2 do %>
+<% end %>
 
 <div id="page_index_show">
-  <div id="home_header">
-    Welcome to Streamcritic. Sign up, it's free!
+  <div class="span-24">
+    <p>
+    <h4>Welcome to Streamcritic. Sign up, it's free!</h4>
+    </p>
+  </div>
+  <div id="social_text" class="span-24 push-8">
+    <p>
+    <h2>Social video <%= link_to 'tagging', @video %>.</h2>
+    </p>
   </div>
   <div id="index_page">
   </div>

@@ -41,12 +41,15 @@
 
 #home_header_bg {
   position: relative; 
-  top: 53px;
+  margin-bottom: -470px;
   background: transparent url('/images/home_bg2x590.png') repeat-x 0 bottom;
-  height: 590px;
+  height: 470px;
   padding: 0;
   text-align: left;
+  z-index: -1;
+}
 
+#page_index_show {
 }
 
 .globalfooter {

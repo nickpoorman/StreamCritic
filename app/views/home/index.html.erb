@@ -12,6 +12,10 @@
     #social_text {
       margin-top: 9em;
     }
+
+    #video_url {
+      width: 220px;
+    }
   </style>
 <% end %>
 <% content_for :hlayout_footer_edit2 do %>
@@ -23,11 +27,16 @@
     <h4>Welcome to Streamcritic. Sign up, it's free!</h4>
     </p>
   </div>
-  <div id="social_text" class="span-24 push-8">
-    <p>
-    <h2>Social video <%= link_to 'tagging', @video %>.</h2>
-    </p>
-  </div>
-  <div id="index_page">
+  <div id="social_text" class="push-8">
+    <div class="span-6">
+      <p>
+      <h2>Social video <%= link_to 'tagging', {:action=>"index", :controller=>"videos"} %>.</h2>
+      </p>
+      <% if logged_in? %>
+        <%= render 'videos/emb_form' %>
+      <% end %>
+    </div>
+    <div id="index_page">
+    </div>
   </div>
 </div>

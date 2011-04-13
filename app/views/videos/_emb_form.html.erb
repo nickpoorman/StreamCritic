@@ -1,0 +1,10 @@
+<%= form_for([@video, Video.new]) do |f| %>
+
+  <div class="field">
+    <%= f.label "Type in a youtube url" %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

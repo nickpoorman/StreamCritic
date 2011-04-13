@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  before_filter :login_required, :only => [:new, :create]
 
   def create
     @video = Video.find(params[:video_id])

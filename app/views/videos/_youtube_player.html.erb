@@ -74,7 +74,9 @@
           updateHTML("bytesLoaded", ytplayer.getVideoBytesLoaded());
           updateHTML("volume", ytplayer.getVolume());
           updateHTML("time", ytplayer.getCurrentTime());
+          <% if logged_in?%>
           updateForm("new_tag", "tag_time", ytplayer.getCurrentTime());
+          <% end %>
           showComments(ytplayer.getCurrentTime());
           updateProgressBar(ytplayer.getCurrentTime(), ytplayer.getDuration());
         }

@@ -10,7 +10,16 @@
     </div>
       <%= render 'youtube_controls' %>
       <%= render 'youtube_stats' %>
-      <%= render 'tags/form' %>
+      <% if logged_in? %>
+        <%= render 'tags/form' %>
+      <% else %>
+        <p id="flash_notice" class="span-5 last">
+        To create a tag
+        <%= link_to('Login', { :action => 'new', :controller => 'sessions' }) %>
+        or
+        <%= link_to('Sign Up', { :action => 'new', :controller => 'users' }) %>
+        </p>
+      <% end %>
   </div>
 
   <div class="span-7 last">

@@ -146,9 +146,9 @@
       // The "main method" of this sample. Called when someone clicks "Run".
       function loadPlayer() {
         // Lets Flash from another domain call JavaScript
-        var params = { allowScriptAccess: "always" };
+        var params = { allowScriptAccess: "always", wmode: "transparent" };
         // The element id of the Flash embed
-        var atts = { id: "ytPlayer" };
+        var atts = { id: "ytPlayer", wmode: "transparent" };
         // All of the magic handled by SWFObject (http://code.google.com/p/swfobject/)
         swfobject.embedSWF("http://www.youtube.com/apiplayer?" +
                           "&enablejsapi=1&playerapiid=player1", 

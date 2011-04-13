@@ -1,10 +1,10 @@
 StreamCritic::Application.routes.draw do
-  resources :videos do
-    resources :tags
+  resources :videos, :except => :destroy do
+    resources :tags, :except => :destroy
   end
 
-  resources :users do
-    resources :tags
+  resources :users, :except => :destroy do
+    resources :tags, :except => :destroy
   end
 
   root :to => "home#index"
@@ -19,7 +19,7 @@ StreamCritic::Application.routes.draw do
 
   resources :sessions
 
-  resources :users
+  resources :users, :except => :destroy
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -6,7 +6,11 @@
   <div id="home_footer_edit">
   <style>
     #home_footer_edit {
-      margin-top: 166px;
+      <% if logged_in? %>
+        margin-top: 92px;
+      <% else %>
+        margin-top: 166px;
+      <% end %>
     }
 
     #social_text {
@@ -24,7 +28,7 @@
 <div id="page_index_show">
   <div class="span-24">
     <p>
-    <h4>Welcome to Streamcritic. Sign up, it's free!</h4>
+  <h4>Welcome to Streamcritic. <% unless logged_in? %><span id="signup_text">Sign up, it's free!</span><% end %></h4>
     </p>
   </div>
   <div id="social_text" class="push-8">

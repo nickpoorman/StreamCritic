@@ -11,4 +11,6 @@ if ($("#page_video_show").length >= 1) {
   /* Load the index partial if index page */
   /* $("#index_page").html("<%= escape_javascript(render(:partial => 'index')) %>"); */
   $("#social_text").append("<%= escape_javascript(render(:partial => 'videos/emb_form')) %>");
+  $("#signup_text").remove();
+  $($("#home_footer_edit")[0]).css("margin-top", "92px");
 }

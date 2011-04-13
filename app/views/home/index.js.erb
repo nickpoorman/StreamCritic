@@ -4,5 +4,10 @@ $(document).trigger('close.facebox')
 /* Change the nav links to signed in status  */
 $("#nav_menu").html("<%= escape_javascript(render(:partial => 'menu/nav_menu')) %>");
 
-/* Load the index partial  */
-$("#index_page").html("<%= escape_javascript(render(:partial => 'index')) %>");
+/* What page did it come from? */
+if ($("#page_video_show").length >= 1) {
+  /* Fix the show page */
+} else if ($("#page_index_show").length >= 1) {
+  /* Load the index partial if index page */
+  $("#index_page").html("<%= escape_javascript(render(:partial => 'index')) %>");
+}

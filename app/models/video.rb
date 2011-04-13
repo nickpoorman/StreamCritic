@@ -4,6 +4,8 @@ class Video
 
   field :url
   field :vid
+  embeds_many :tags
+
 
   # new columns need to be added here to be writable through mass assignment
   attr_accessible :url, :vid
@@ -15,7 +17,7 @@ class Video
   validates_uniqueness_of :url, :allow_blank => true
   validates_uniqueness_of :vid, :allow_blank => true
 
-  embeds_many :tags
+
 
   private
 

@@ -1,4 +1,4 @@
-<div class="span-24">
+<div id="page_video_show" class="span-24">
   <p id="notice"><%= notice %></p>
 </div>
 <div class="span-24">
@@ -13,12 +13,14 @@
       <% if logged_in? %>
         <%= render 'tags/form' %>
       <% else %>
-        <p id="flash_notice" class="span-5 last">
-        To create a tag
-        <%= link_to('Login', { :action => 'new', :controller => 'sessions' }) %>
-        or
-        <%= link_to('Sign Up', { :action => 'new', :controller => 'users' }) %>
-        </p>
+        <div id="login_on_show_page">
+          <p id="flash_notice" class="span-5 last">
+          To create a tag
+          <%= link_to('Login', { :action => 'new', :controller => 'sessions' }) %>
+          or
+          <%= link_to('Sign Up', { :action => 'new', :controller => 'users' }) %>
+          </p>
+        </div>
       <% end %>
   </div>
 

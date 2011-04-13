@@ -1,5 +1,5 @@
 <div href="javascript:void(0)" onclick="seek(<%= @tag.time %>, true);" class="comment" data-tstamp="<%= @tag.time %>">
-  <div id="tag_username"><%= @tag.user.username %></div><div class="tag_time"></div> 
+  <div class="tag_username"><a><%= @tag.user.username %></a><span class="tag_time"></span></div>
   <p><%= wrap(@tag.comment) %></p>
   <hr/>
 </div>

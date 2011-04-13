@@ -25,7 +25,6 @@
   </div>
 
   <div class="span-7 last">
-    <h2 id="users_tags">Users Tags</h2>
     <% if @video.tags.size > 0 %>
       <% for @tag in @video.tags.order_by(:time.desc) %>
         <%= render 'tags/tag' %>
@@ -40,11 +39,15 @@
     adjustTagTimes();
   });
 
+  $('.comment').mouseenter(function() {
+      $(this).;
+  });
+
 function adjustTagTimes() {
   $(".tag_time").each(function () {
-      var time = parseFloat($(this).parent().data("tstamp"));
+      var time = parseFloat($(this).parent().parent().data("tstamp"));
       if(time < 0) { time = 0; }
-      $(this).text(frtToSt(time));
+      $(this).append(frtToSt(time));
   });
 }
 </script>

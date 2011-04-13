@@ -4,8 +4,9 @@ class Video
 
   field :url
   field :vid
-  embeds_many :tags
 
+  #CHANGED embeds_many :tags
+  has_many :tags
 
   # new columns need to be added here to be writable through mass assignment
   attr_accessible :url, :vid

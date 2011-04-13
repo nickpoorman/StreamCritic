@@ -27,7 +27,7 @@
   <div class="span-7 last">
     <h2 id="users_tags">Users Tags</h2>
     <% if @video.tags.size > 0 %>
-      <% for @tag_enum in @video.tags.order_by(:time.desc) %>
+      <% for @tag in @video.tags.order_by(:time.desc) %>
         <%= render 'tags/tag' %>
       <% end %>
     <% end %>

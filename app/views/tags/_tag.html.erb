@@ -1,5 +1,5 @@
-<div href="javascript:void(0)" onclick="seek(<%= @tag_enum.time %>, true);" class="comment" data-tstamp="<%= @tag_enum.time %>">
-  <div class="tag_time"></div> 
-  <p><%= wrap(@tag_enum.comment) %></p>
+<div href="javascript:void(0)" onclick="seek(<%= @tag.time %>, true);" class="comment" data-tstamp="<%= @tag.time %>">
+  <div id="tag_username"><%= @tag.user.username %></div><div class="tag_time"></div> 
+  <p><%= wrap(@tag.comment) %></p>
   <hr/>
 </div>

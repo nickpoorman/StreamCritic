@@ -3,6 +3,10 @@ StreamCritic::Application.routes.draw do
     resources :tags
   end
 
+  resources :users do
+    resources :tags
+  end
+
   root :to => "home#index"
 
   match 'user/edit' => 'users#edit', :as => :edit_current_user

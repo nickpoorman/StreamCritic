@@ -7,8 +7,10 @@ class User
   field :password_hash
   field :password_salt
 
+  has_many :tags
+
   # new columns need to be added here to be writable through mass assignment
-  attr_accessible :username, :email, :password, :password_confirmation
+  attr_accessible :username, :email, :password, :password_confirmation, :tags
 
   attr_accessor :password
   before_save :prepare_password

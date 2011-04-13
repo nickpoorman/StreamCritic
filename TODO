@@ -1,0 +1,14 @@
+TODO:
+
+- Edit user page doesn't return any kind of success failure.
+- before_filer :login_required redirects to the /login page (change to login facebox)
+- a user can destroy another users session? just storing the userid? this is not good.
+- disable link edit for /video/1 in controller
+- validate urls to make sure they are youtube urls
+- spruce up the error page if someone somehow sneaks in a bad url /show !youtube v=
+- vid error handling needs to be done
+- old cookie handling needs to be done [Document not found for class User with id(s) 4d9adcc51adf4924b200001a.]
+- be able to mark a spot as the video is playing
+- add xy cord to tag model
+- put some popular videos on the home page
+- 

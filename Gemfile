@@ -5,6 +5,7 @@ gem 'mongoid', '>= 2.0.0'
 gem 'mongo_ext'
 gem 'bson_ext', '>= 1.2.4'
 gem 'heroku'
+gem 'rack-google_analytics', :require => "rack/google_analytics"
 
 group :development do
   gem 'rspec-rails', '>= 2.5.0'

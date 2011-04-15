@@ -4,3 +4,5 @@ if($(".comment:visible").length < 1){
   $($(".comment:visible")[0]).before("<%= escape_javascript(render(:partial => 'tag')) %>");
 }
 adjustTagTimes();
+//clear the text box
+$($("#tag_comment")[0]).val('');

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+
+<title>Stream Critic</title>
+
+</head>
+
+<body>
+
+	<header> 
+ 
+        <hgroup> 
+          <h1>Stream Critic</h1> 
+          <h2>What you think matters.</h2> 
+        </hgroup> 
+ 
+	</header> 
+
+    <div id="videowrap"> 
+        <div class="videocomment" id="hole" ></div> 
+        
+        <video id="movie" width="640" height="360" controls preload>
+            <source src="../video/trailer_test.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+            <source src="../video/trailer_test.ogg" type='video/ogg; codecs="theora, vorbis"'>
+        </video>
+    </div>
+       
+<style>
+body{
+	text-align: center;
+	background-color: #FFF; 
+}
+
+header{
+
+  background-attachment:initial;
+  background-clip:initial;
+  background-color: initial;
+  background-image:initial;
+  background-origin:initial;
+  background-position:initial initial;
+  background-repeat:initial initial;
+  
+  margin-bottom:1.0em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:0;
+  padding-bottom:0.75em;
+  padding-left:0;
+  padding-right:0;
+  padding-top:0.75em;
+  border-style:outset;
+
+  -moz-box-shadow: 2px 2px 2px #06F;
+  -webkit-box-shadow: 2px 2px 2px #06F;
+  -box-shadow: 2px 2px 2px #06F;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  
+   position:relative;
+   width:640px;
+}
+
+h1{
+	color:#06F;
+}
+
+h2{
+	color:#06F;
+	font-size:medium;
+}
+
+#videowrap { position:relative;
+	margin-bottom:0;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:0;	
+	width:640px;}
+	
+.videocomment { position:absolute;
+background: transparent;
+color: #333;
+font:"trebuchet ms",sans-serif; width:120px;
+height: 75px;
+width: 75px;
+border-style:outset;
+-moz-box-shadow: 2px 2px 2px rgba(50,50,50,0.4);
+-webkit-box-shadow: 2px 2px 2px rgba(50,50,50,0.4);
+-box-shadow: 2px 2px 2px rgba(50,50,50,0.4);
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+padding:5px; }
+
+#hole { left: 350px; top: 225px;}
+</style> 
+    
+<!-- Display is going to need to be none so all the comments don't show up when the page loads. display:none; -->   
+ 
+	<script>
+	var v = document.getElementById("movie");
+	v.onclick = function() { 
+		if (v.paused) { 
+			v.play();
+		} else { 
+			v.pause();
+		} 
+	};
+	</script>
+    
+</body>
+</html>

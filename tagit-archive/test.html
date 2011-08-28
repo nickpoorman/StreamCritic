@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>HTML5 Video Player</title>
+  <script type="text/javascript" charset="utf-8">
+
+    var video;
+    var controls;
+    var playControl;
+    var progressControl;
+    var progressHolder;
+    var playProgressBar;
+    var playProgressInterval;
+    var currentTimeDisplay;
+    var durationDisplay;
+    var volumeControl;
+    var volumeDisplay;
+    var fullScreenControl;
+
+    var videoWasPlaying;
+    var videoIsFullScreen;
+    var videoOrigWidth;
+    var videoOrigHeight;
+
+    var bodyLoaded = function(){
+      video = document.getElementById("video");
+      controls = document.getElementById("controls");
+      playControl = document.getElementById("play");
+      progressControl = document.getElementById("progress");
+      progressHolder = document.getElementById("progress_box");
+      playProgressBar = document.getElementById("play_progress");
+      currentTimeDisplay = document.getElementById("current_time_display");
+      durationDisplay = document.getElementById("duration_display");
+      volumeControl = document.getElementById("volume");
+      volumeDisplay = document.getElementById("volume_display");
+      fullScreenControl = document.getElementById("full_screen");
+
+    }
+  </script>
+  
+</head>
+<body id="body" onload="bodyLoaded();">
+
+    <video id="video" width="640" height="360" poster="poster.jpg" autobuffer>
+      <source src="trailer_test.mp4" type="video/mp4"></source>
+      <source src="trailer_test.ogg" type="video/ogg"></source><!--[if gt IE 6]>
+      <object width="640" height="375" classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B"><!
+      [endif]--><!--[if !IE]><!-->
+      <object width="640" height="375" type="video/quicktime" data="trailer_test.mp4">
+      <!--<![endif]-->
+      <param name="src" value="trailer_test.mp4" />
+      <param name="showlogo" value="false" />
+      <param name="autoplay" value="false" />
+    </video>
+</body>
+</html>
